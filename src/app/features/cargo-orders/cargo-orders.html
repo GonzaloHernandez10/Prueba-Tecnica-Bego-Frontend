@@ -1,1 +1,9 @@
-<p>cargo-orders works!</p>
+@if(isLoading()) {
+    <div class="loading">Cargando órdenes...</div>
+} @else if(errorMessage()) {
+    <div class="error">{{ errorMessage() }}</div>
+} @else {
+    @for(order of orders(); track order._id) {
+        <app-order-card [order]="order"/>
+    }
+}
