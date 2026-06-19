@@ -1,0 +1,20 @@
+<app-top-bar title="Cargo Orders"/>
+
+<div class="tabs-container">
+    <button class="tab active">Upcoming</button>
+    <button class="tab">Completed</button>
+    <button class="tab">Past</button>
+</div>
+
+<app-search-box (searchEvent)="onSearch($event)" />
+
+@if(isLoading()) {
+    <div class="loading">Cargando órdenes...</div>
+} @else if(errorMessage()) {
+    <div class="error">{{ errorMessage() }}</div>
+} @else {
+    @for(order of filteredOrders(); track order._id) {
+        <p>Order #{{ order.order_number }}</p>
+        <app-order-card [order]="order"/> 
+    }
+}

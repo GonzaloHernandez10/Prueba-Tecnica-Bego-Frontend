@@ -1,0 +1,73 @@
+.timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.timeline-point {
+    display: grid;
+    grid-template-columns: 24px 1fr auto;
+    gap: 16px;
+    align-items: start;
+    position: relative;
+}
+
+.timeline-icon-wrapper {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--bg-card); 
+    position: relative;
+    z-index: 2;
+}
+
+.timeline-point:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    left: 11px;    
+    top: 30px!important;    
+    bottom: -24px!important; 
+    width: 2px;
+    background-color: var(--text-secondary);
+    opacity: 0.3;
+    z-index: 1;
+}
+
+.label {
+    color: var(--text-secondary);
+    font-size: 0.75rem;
+    font-weight: 600;
+    margin: 0 0 4px 0;
+    letter-spacing: 0.5px;
+}
+
+.location-info h4 {
+    margin: 0 0 4px 0;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.time-info {
+    text-align: right;
+}
+
+.date {
+    font-size: 0.75rem;
+    font-weight: 400;
+    margin: 0 0 4px 0;
+}
+
+.time {
+    color: var(--text-secondary);
+    font-size: 0.75rem;
+    font-weight: 400;
+    margin: 0;
+}
+
+.address {
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    margin: 0;
+}
