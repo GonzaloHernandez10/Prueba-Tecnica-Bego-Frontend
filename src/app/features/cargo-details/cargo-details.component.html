@@ -1,1 +1,47 @@
-<p>cargo-details works!</p>
+@if (order) {
+  <main class="details-page">
+    <app-top-bar title="Cargo Details"></app-top-bar>
+
+    <section class="order-card">
+      <div class="reference-header">
+        <span class="text-secondary">Referencia {{ orderDetail()?.reference_number }}</span>
+        <h2>Order #{{ order.order_number }}</h2>
+      </div>
+
+      <div class="timeline-wrapper">
+        <app-order-timeline
+          [destinations]="order.destinations"
+          (stageSelected)="onDestinationChange($event)"
+        ></app-order-timeline>
+      </div>
+    </section>
+
+    <app-driver-info [trackingList]="currentTrackingList()"></app-driver-info>
+
+    <details class="pickup-details" open>
+      <summary>
+        <span>{{ activeStage()?.nickname | uppercase }}</span>
+        <svg
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="var(--accent-yellow)"
+          stroke-width="2"
+        >
+          <polyline points="18 15 12 9 6 15"></polyline>
+        </svg>
+      </summary>
+
+      <div class="pickup-content">
+        <p>{{ activeStage()?.address }}</p>
+        <p class="date-row">
+          <span>{{ activeStage()?.start_date | date: "dd 'de' MMMM yyyy" }}</span>
+          <span>• {{ activeStage()?.start_date | date: 'HH:mm' }}</span>
+        </p>
+        <p>{{ orderDetail()?.driver?.email }}</p>
+        <p>{{ orderDetail()?.driver?.telephone }}</p>
+      </div>
+    </details>
+  </main>
+}

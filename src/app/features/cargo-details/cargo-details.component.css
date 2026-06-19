@@ -1,0 +1,84 @@
+:host {
+  display: block;
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 24px 16px;
+}
+
+.details-page {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.order-card {
+  background-color: var(--bg-card);
+  border-radius: var(--border-radius-lg);
+  padding: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.reference-header {
+  margin-bottom: 1.5rem;
+}
+
+.reference-header .text-secondary {
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  margin-bottom: 0.25rem;
+  display: block;
+}
+
+.reference-header h2 {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.pickup-details {
+  margin-top: 0.5rem;
+}
+
+.pickup-details summary {
+  background-color: var(--bg-card);
+  border-radius: var(--border-radius-lg);
+  padding: 1.2rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 600;
+  list-style: none;
+  cursor: pointer;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.pickup-details summary::-webkit-details-marker {
+  display: none;
+}
+
+.pickup-details summary svg {
+  transition: transform 0.3s ease;
+}
+
+.pickup-details:not([open]) summary svg {
+  transform: rotate(180deg);
+}
+
+.pickup-content {
+  padding: 1.5rem 1rem;
+  color: var(--text-primary);
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.pickup-content p {
+  margin: 0;
+}
+
+.date-row {
+  display: flex;
+  gap: 1rem;
+}

@@ -1,1 +1,41 @@
-<p>driver-info works!</p>
+<article class="driver-tracking">
+  <div class="avatar-container">
+    <img src="https://i.pravatar.cc/150?img=11" alt="Driver" class="driver-avatar" />
+  </div>
+
+  <h3 class="time-header">10:30 PM</h3>
+
+  <div class="tracking-timeline">
+    @for (step of list; track step.status; let isLast = $last) {
+      <div class="track-step">
+        <div class="icon-col">
+          @if (step.active) {
+            <div class="circle-check">
+              <svg viewBox="0 0 24 24">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+            </div>
+          } @else {
+            <div class="circle-radio">
+              <div></div>
+            </div>
+          }
+
+          @if (!isLast) {
+            <div class="line" [class.gray]="!list[$index + 1]?.active"></div>
+          }
+        </div>
+        <div class="text-col" [class.dim]="!step.active">{{ step.status }}</div>
+      </div>
+    }
+  </div>
+
+  <button
+    class="track-btn"
+    [disabled]="realStatus() < 3"
+    [class.disabled]="realStatus() < 3"
+    (click)="onTrackOrder()"
+  >
+    Track Order
+  </button>
+</article>

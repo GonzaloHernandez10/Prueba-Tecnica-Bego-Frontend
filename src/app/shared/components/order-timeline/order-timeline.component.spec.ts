@@ -1,17 +1,17 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { OrderTimeline } from './order-timeline.component';
+import { OrderTimelineComponent } from './order-timeline.component';
 
-describe('OrderTimeline', () => {
-  let component: OrderTimeline;
-  let fixture: ComponentFixture<OrderTimeline>;
+describe('OrderTimelineComponent', () => {
+  let component: OrderTimelineComponent;
+  let fixture: ComponentFixture<OrderTimelineComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [OrderTimeline],
+      imports: [OrderTimelineComponent],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(OrderTimeline);
+    fixture = TestBed.createComponent(OrderTimelineComponent);
     component = fixture.componentInstance;
     await fixture.whenStable();
   });

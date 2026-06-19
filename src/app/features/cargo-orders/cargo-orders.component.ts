@@ -38,9 +38,7 @@ export class CargoOrdersComponent implements OnInit {
     if (!term) {
       return allOrders;
     }
-    return allOrders.filter(order =>
-      order.order_number.toLowerCase().includes(term)
-    );
+    return allOrders.filter((order) => order.order_number.toLowerCase().includes(term));
   });
 
   ngOnInit(): void {
@@ -52,7 +50,6 @@ export class CargoOrdersComponent implements OnInit {
    * @param {string} text - El texto a buscar emitido por el componente SearchBox.
    */
   onSearch(text: string): void {
-    console.log(text);
     this.searchTerm.set(text);
   }
 
@@ -71,8 +68,7 @@ export class CargoOrdersComponent implements OnInit {
       error: (error: Error) => {
         this.errorMessage.set(error.message);
         this.isLoading.set(false);
-      }
-    })
+      },
+    });
   }
-
 }

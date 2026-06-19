@@ -1,37 +1,39 @@
 :host {
-    display: block;
-    max-width: 500px;
-    margin: 0 auto;
-    padding: 24px;
+  display: block;
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 24px;
 }
 
 .tabs-container {
-    display: flex;
-    gap: 2rem;
-    margin-bottom: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
 }
 
 .tab {
-    background: none;
-    border: none;
-    color: var(--text-secondary);
-    font-size: 1rem;
-    font-weight: 600;
-    padding: 0.5rem 0;
-    cursor: pointer;
-    position: relative;
+  flex: 1;
+  text-align: center;
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 0.5rem 0;
+  cursor: pointer;
+  position: relative;
 }
 
 .tab.active {
-    color: var(--text-primary);
+  color: var(--text-primary);
 }
 
 .tab.active::after {
-    content: '';
-    position: absolute;
-    bottom: -1px;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background-color: var(--accent-yellow);
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--accent-yellow);
 }

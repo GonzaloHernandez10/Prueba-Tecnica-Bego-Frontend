@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Destination } from '../../models/order';
 import { ExtractCityPipe } from '../../pipes/extract-city.pipe';
@@ -19,4 +19,16 @@ export class OrderTimelineComponent {
    * @description Arreglo de destinos (Pickup, Dropoff, etc.) que dicta los puntos del timeline.
    */
   @Input() destinations!: Destination[];
+  @Output() stageSelected = new EventEmitter<number>();
+
+  activeIndex = signal<number>(0);
+
+  /**
+   * @description Maneja la selección de una etapa de la timeline.
+   * @param index Índice de la etapa seleccionada.
+   */
+  onSelected(index: number): void {
+    this.activeIndex.set(index);
+    this.stageSelected.emit(index);
+  }
 }
